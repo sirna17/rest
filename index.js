@@ -1,15 +1,18 @@
-import { getAllUsers } from "./controlleur/taskControlleur";
-
 console.log("toto");
 
 
- import {getAllUsers, getTaskFromNameUser ,getTaskFromNameUser} from "./controlleur/taskControlleur.js"
+ import {getAllUsers, getUserId, getTaskFromNameUser,editOneTasksById} from "./controlleur/taskControlleur.js"
 
 
+//  getUserId();
+
+// getTaskFromNameUser();
+
+// getAllUsers();
+
+// editOneTasksById (2,"boire de l'eau");
 
 
-
-getTaskFromNameUser ();
       
         
       

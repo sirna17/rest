@@ -1,11 +1,13 @@
+import dotenv from "dotenv"
+dotenv.config()
 import mysql from "mysql"
 export const connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  password : '',
-  database : 'restful_api'
+  host     : process.env.host,
+  user     : process.env.user,
+  password : process.env.password,
+  database : process.env.database
 });
- 
+  
 connection.connect((err) => {
         if(err) throw err
         console.log("ok");

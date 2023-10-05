@@ -25,6 +25,7 @@ export function getUserId () {
         })
 };
 
+
 export function  getTaskFromNameUser () {
         connection.query('SELECT nom FROM users', (error, results) => {
                 if (error) throw error;
@@ -34,3 +35,13 @@ export function  getTaskFromNameUser () {
                 }
         })
 };
+
+export function editOneTasksById (id,description) {
+        connection.query("UPDATE tasks SET description = ? WHERE id = ?",[description,id], (error, results) => {
+                if (error) {
+                        console.log('error')
+                }
+                console.log(results)
+        })
+
+}
