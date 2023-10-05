@@ -10,5 +10,5 @@ export const connection = mysql.createConnection({
   
 connection.connect((err) => {
         if(err) throw err
-        console.log("ok");
+        console.log("base de donner demarer");
 });
