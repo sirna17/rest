@@ -13,6 +13,10 @@ import {getAllUsers, getUserId, getTaskFromNameUser,editOneTasksById} from "./co
 import  express  from "express";
 //app est la variable qui contient mon serveur web
 const app = express()
+
+// import de routeur
+import { taskRouteur } from "./routeur/taskRouteur.js";
+app.use(taskRouteur)
 // creation d'une route sur l'adress /
 app.get('/', function (req, res) {
         //res est la variable qui contient la reponse envoyer au client,ici j'envoie du html avec Pierre dedans 

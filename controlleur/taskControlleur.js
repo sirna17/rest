@@ -1,6 +1,6 @@
 
 import {connection} from "../db.js"
-export function getAllUsers() {
+export function getAllUsers(req,res) {
         connection.query('SELECT * FROM users', (error, results) => {
                 if (error) throw error;
 
@@ -10,6 +10,7 @@ export function getAllUsers() {
                         console.log('Email : ', results[i].email);
                         console.log('Password : ', results[i].password);
                 }
+                res.send(results)
         });
 
         connection.end();
