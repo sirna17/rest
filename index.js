@@ -27,11 +27,20 @@ app.get('/json', function (req, res) {
         })
           
 })
+//ajout d'une route sur /mon-api qui vas renvoyé une api sur naruto personalisé
+import {customApiControlleur} from './controlleur/customControlleur.js'
+app.get('/mon-api', function (req, res) {
+        //fetch recuperer l'api naruto
+         customApiControlleur(req,res)
+})
 //pour demarer le serveur
 app.listen(3000,function(){
         console.log('serveur demarer')
 
 })
+
+
+
       
      
       
