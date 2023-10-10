@@ -1,4 +1,4 @@
-import {getAllUsers, getUserId, getTaskFromNameUser,editOneTasksById} from "./controlleur/taskControlleur.js"
+
 
 
 //  getUserId();
@@ -15,7 +15,9 @@ import  express  from "express";
 const app = express()
 
 // import de routeur
+import { userRouteur } from "./routeur/userRouteur.js";
 import { taskRouteur } from "./routeur/taskRouteur.js";
+app.use(userRouteur)
 app.use(taskRouteur)
 // creation d'une route sur l'adress /
 app.get('/', function (req, res) {
