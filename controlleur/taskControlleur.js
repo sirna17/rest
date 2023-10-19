@@ -59,7 +59,7 @@ export const postTaskById = (req, res) => {
         const id = req.params.id;
         const description = req.body.description;
         const complete = req.body.complete;
-        connection.query('UPDATE tasks SET description = ?, complete = ? WHERE owner = ?',[description, complete, id], (error, results) => {
+        connection.query('UPDATE tasks SET description = ?, complete = ? WHERE owner = ?',[description, complete,id], (error, results) => {
                if (error){
                        console.log('erreur')
                 }
