@@ -23,28 +23,57 @@ export async function getAllTask (req, res) {
                 res.send (error)
         }
 }
-export  function  getTaskFromNameUser () {
-                connection.query('SELECT nom FROM users', (error, results) => {
-                        if (error) throw error;
+export async function  getTaskFromNameUser () {
+                // connection.query('SELECT nom FROM users', (error, results) => {
+                //         if (error) throw error;
 
-                        for (let i = 0; i < results.length; i++) {
-                                console.log('Nom : ', results[i].nom);
-                        }
-                })
+                //         for (let i = 0; i < results.length; i++) {
+                //                 console.log('Nom : ', results[i].nom);
+                //         }
+                // })
+                try{
+                        const tasks = await Task.findAll({
+                                where: {
+                                  id : req.params.id
+                                }
+                                })
                 
+                if (!tasks){
+                       res.status(404).send('pas trouvé de tâche')
+                }{
+                        res.status(200).send (tasks);
+                }
+                }catch(error) {
+                        res.send(error)
+                }
+
       
         };
 
-export  function editOneTasksById   (id,description)  {
-        connection.query("UPDATE tasks SET description = ? WHERE id = ?",[description,id], (error, results) => {
-                if (error) {
-                        console.log('error')
-                }
-                console.log(results)
-        })
-                  
+export async function editOneTasksById   (id,description)  {
+        // connection.query("UPDATE tasks SET description = ? WHERE id = ?",[description,id], (error, results) => {
+        //         if (error) {
+        //                 console.log('error')
+        //         }
+        //         console.log(results)
+        // })
+        try{
+                const tasks = await Task.findAll({
+                        where: {
+                          id : req.params.id
+                        }
+                        })
         
-}
+        if (!tasks){
+               res.status(404).send('pas trouvé de tâche')
+        }{
+                res.status(200).send (tasks);
+        }
+        }catch(error) {
+                res.send(error)
+        }
+};
+
 export const getTaskById = (req, res) =>{
         const id = req.params.id
         connection.query('SELECT * FROM tasks WHERE id = ?',[id], (error, results) => {
