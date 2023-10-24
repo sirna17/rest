@@ -4,9 +4,15 @@ import  express  from "express";
 export const taskRouteur = express.Router()
 
 //importer les controlleur
-import { getTaskById, postTaskById, deleteTaskId, editTaskId } from "./../controlleur/taskControlleur.js";
+import {getAllTask, getTaskFromNameUser, getTaskById, postTaskById, deleteTaskId, editTaskId } from "./../controlleur/taskControlleur.js";
 
 //route /users pour obtenir les liste des utilisateurs
+taskRouteur.get('/tasks',(req,res) => {
+        getAllTask(req,res)
+})
+taskRouteur.get('/tasks/:id', async (req, res) => {
+        getTaskFromNameUser(req,res)
+})
 taskRouteur.get('/tasks/:id',(req,res) => {
         getTaskById(req,res)
 })
