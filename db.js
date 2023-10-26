@@ -28,6 +28,6 @@ export const sequelize  = new Sequelize(
     host: process.env.host,
     dialect:"mysql",
     freezeTableName :true
-    // dialect: process.env.DB_DIALECT
+    
   }
 );
