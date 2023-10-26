@@ -15,7 +15,9 @@ export async function getAllUsers (req, res) {
 
         // connection.end();
 
+        
 
+        
         try{
                 //findAll() permet de récupérer tous les enregistrements de la table
                 const users = await User.findAll();
@@ -29,7 +31,8 @@ export async function getAllUsers (req, res) {
         }catch(error) {
                 res.send(error)
         }
-        
+        console.log('coucou');
+
 }
 
 export function getUserId () {
