@@ -1,5 +1,6 @@
 import dotenv from "dotenv"
 dotenv.config()
+
 // import mysql from "mysql"
 // export const connection = mysql.createConnection({
 //   host     : process.env.host,
@@ -14,20 +15,29 @@ dotenv.config()
 // });
 
 import { Sequelize } from 'sequelize';
-
-
-
+import process from 'process';
+// import mysql  from 'mysql2';
+// export const connection = mysql.createConnection({
+//   host: 'localhost',
+//   user: 'root',
+//   database: 'restful_api'
+// });
 export const sequelize  = new Sequelize(
+  process.env.database,
   process.env.user,
   process.env.password,
-  process.env.database,
   {
     define: {
       freezeTableName: true
   }, 
-    host: process.env.host,
+    host: 'localhost',
     dialect:"mysql",
-    freezeTableName :true
-    
   }
 );
+// connection.query(
+//   'SELECT * FROM `tasks`',
+//   function(err, results, fields) {
+//     console.log(results); // results contains rows returned by server
+//     console.log(fields); // fields contains extra meta data about results, if available
+//   }
+// );

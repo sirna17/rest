@@ -1,4 +1,4 @@
-// 
+console.log('coucou');
 
 
 //  getUserId();
@@ -15,7 +15,7 @@ import  express  from "express";
 const app = express()
 
 
-
+// import './db.js';
 
 // import de routeur
 

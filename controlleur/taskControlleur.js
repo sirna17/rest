@@ -23,7 +23,7 @@ export async function getAllTask (req, res) {
                 res.send (error)
         }
 }
-export async function  getTaskFromNameUser () {
+export async function  getTaskFromNameUser (req,res) {
                 // connection.query('SELECT nom FROM users', (error, results) => {
                 //         if (error) throw error;
 
@@ -41,15 +41,13 @@ export async function  getTaskFromNameUser () {
                 
                 if (!tasks){
                        res.status(404).send('pas trouvé de tâche')
-                }{
-                        res.status(200).send (tasks);
                 }
+                res.status(200).send (tasks);
+                
                 }catch(error) {
                         res.send(error)
                 }
-
-      
-        };
+};
 
 export async function editOneTasksById   (id,description)  {
         // connection.query("UPDATE tasks SET description = ? WHERE id = ?",[description,id], (error, results) => {
